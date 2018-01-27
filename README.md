@@ -4,8 +4,16 @@
 
 Allow you to quickly generate otp-code without cellular phone.
 
+## Installation
+
+    $ python3 setup.py install
+
+or using pip:
+
+    $ python3 -m pip install git+https://github.com/khokhlin/nootp.git
+
 ## Usage
 
-python nootp.py [-c ~/.nootp.ini] [--clip]
+nootp [--config ~/.nootp.ini] [--copy]
 
---clip option can be used when running on Windows to copy the code into clipboard.
+--copy option can be used to copy the code into clipboard.

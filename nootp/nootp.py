@@ -1,4 +1,5 @@
 """Cisco AnyConnect VPN without a cellphone"""
+
 import os
 import sys
 import binascii
@@ -28,7 +29,6 @@ def parse_args():
     parser.add_argument("-c", "--config")
     parser.add_argument("--copy", action="store_true",
                         default=False, help="Copy to clipboard")
-    parser.add_argument("--decode", help="Path to a qrcode image to decode")
     return parser.parse_args()
 
 
