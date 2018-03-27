@@ -14,6 +14,6 @@ or using pip:
 
 ## Usage
 
-nootp [--config ~/.nootp.ini] [--copy]
+nootp [--config ~/.nootp.ini] [--copy] [--clear-timeout=5]
 
 --copy option can be used to copy the code into clipboard.

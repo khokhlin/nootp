@@ -5,6 +5,7 @@ import sys
 import binascii
 import configparser
 import argparse
+import time
 import pyotp
 import pyperclip
 
@@ -24,11 +25,19 @@ def get_config(configfile=None):
     return config
 
 
+def clear_clipboard(content):
+    old_content = pyperclip.paste()
+    if old_content == content:
+        pyperclip.copy(" ")
+
+
 def parse_args():
     parser = argparse.ArgumentParser("Cisco Anyconnect VPN in one click")
     parser.add_argument("-c", "--config")
     parser.add_argument("--copy", action="store_true",
                         default=False, help="Copy to clipboard")
+    parser.add_argument("--clear-timeout", "-ct", type=int, default=10,
+                        help="Timeout before clearing clipboard")
     return parser.parse_args()
 
 
@@ -49,6 +58,10 @@ def main():
 
     func = pyperclip.copy if args.copy else print
     func(result)
+
+    if args.copy and args.clear_timeout > 0:
+        time.sleep(args.clear_timeout)
+        clear_clipboard(result)
 
 
 if __name__ == "__main__":
